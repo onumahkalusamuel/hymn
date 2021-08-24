@@ -1,0 +1,40 @@
+<html>
+<head>
+<style>
+body {
+background-color:green;
+}
+iframe {border: none;
+width:100%;
+height:100%;
+}
+
+iframe p.stanza {color:red;}
+</style>
+</head>
+
+<body>
+
+<p>Test ajax</p>
+<form id="get" onsubmit="return false">
+<input type="text" id="id" />
+<input type="submit" value="submit"/>
+</form>
+<div id="hiddenresult" hidden></div>
+
+<div id="testresult">
+
+</div>
+
+<script type="text/javascript" src="jquery.js"></script>
+
+<script type="text/javascript">
+$("#get").on("submit", function(){
+	id = $("#id").val();
+	$("#testresult").html("<iframe src='html/"+id+".html'>");
+	// $("#testresult").html("<object type='text/html' data='html/"+id+".html'></object>");
+});
+</script>
+
+</body>
+</html>
