@@ -4,26 +4,23 @@ p.id {
 p.title
  {   font-weight: 700;
     font-family: monospace;
-    color: #F5DEB3;
     font-size: 1.5em;
 }
 
 
 p.stanza {
-    color: #F5DEB3;
     text-transform: capitalize;
     font-family: cursive;
 }
 
 
 p.chorus {
-    color: #F5DEB3;
     text-transform: capitalize;
     font-family: sans-serif;
     text-align: right;
     font-size: small;
  
-
+}
 p.chorus:before {
     content: "Chorus:";
 }

@@ -1,40 +1,93 @@
+<!DOCTYPE html>
 <html>
+
 <head>
-<style>
-body {
-background-color:green;
-}
-iframe {border: none;
-width:100%;
-height:100%;
-}
-
-iframe p.stanza {color:red;}
-</style>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Sacred Songs & Solos</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
-
 <body>
+    <style>
+        * {
+            font-family: 'Courier New', Courier, monospace
+        }
+        .container {
+            max-width: 400px;
+            border: 1px solid #0009;
+            background-color: #0001;
+            min-height: 90vh;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            border-radius: 10px;
+            padding-bottom:0px;
+            box-shadow: 5px 5px 10px #0005;
+        }
 
-<p>Test ajax</p>
-<form id="get" onsubmit="return false">
-<input type="text" id="id" />
-<input type="submit" value="submit"/>
-</form>
-<div id="hiddenresult" hidden></div>
+        .navigation ul {
+            list-style-type: none;
+            margin: 0;
+            padding-left: 0;
+            width: 100%;
+        }
 
-<div id="testresult">
+        .navigation ul li {
+            display: inline;
+        }
 
-</div>
+        .navigation ul li a {
+            text-decoration: none;
+            padding: 0.3rem 0.75rem;
+            border: 1px solid grey;
+            background-color: #fff;
+            color: grey;
+            border-radius: 3px;
+            text-transform: uppercase;
+        }
 
-<script type="text/javascript" src="jquery.js"></script>
+        .navigation ul li a:hover,
+        .navigation ul li a:active {
+            text-decoration: none;
+            color: #000
+        }
+        .input {
+            padding-top:0.5rem;
+            padding-bottom:0.5rem;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    </style>
+    <div class="container">
 
-<script type="text/javascript">
-$("#get").on("submit", function(){
-	id = $("#id").val();
-	$("#testresult").html("<iframe src='html/"+id+".html'>");
-	// $("#testresult").html("<object type='text/html' data='html/"+id+".html'></object>");
-});
-</script>
+        <header class="header">
+            <h2 style="margin-bottom:0.75rem; margin-top:0.75rem">Sacred Songs & Solos</h2>
+            <div class="navigation">
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./hymn-index.html">Hymn Index</a></li>
+                    <li><a href="./search.html">Search</a></li>
+                </ul>
+            </div>
+        </header>
+                <form style="margin-top: 0.75rem; width:100%;">
+                    <input class="input" type="text" name="hymn_id" placeholder="ID" />
+                    <button class="input" style="padding-left:1.75rem; padding-right:1.75rem" type="submit">Submit</button>
+                </form>
+            <div id="testresult" style="margin-top:0.75rem; height:70vh; margin-bottom:0px"></div>
+    </div>
+    <script type="text/javascript">
+        var queryString = window.location.search;
+        var urlParams = new URLSearchParams(queryString);
+        var hymn_id = urlParams.get('hymn_id');
+        if (!!hymn_id) {
+            document.querySelector("#testresult").innerHTML = "\
+            <iframe src='html/" + hymn_id + ".html' width='95%' height='100%' style='background:white; border-radius:10px;' frameBorder='0'>\
+            </iframe>\
+            ";
+        }
+    </script>
 
 </body>
+
 </html>
