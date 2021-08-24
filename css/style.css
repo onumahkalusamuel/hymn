@@ -1,3 +1,7 @@
+p {
+    line-height: 2;
+}
+
 p.id {
     display:none;
 }
@@ -10,7 +14,7 @@ p.title
 
 p.stanza {
     text-transform: capitalize;
-    font-family: cursive;
+    font-family: monospace;
 }
 
 
@@ -19,10 +23,8 @@ p.chorus {
     font-family: sans-serif;
     text-align: right;
     font-size: small;
+    font-style: italic;
  
-}
-p.chorus:before {
-    content: "Chorus:";
 }
 
 iframe {
